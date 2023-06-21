@@ -1,0 +1,235 @@
+import 'package:confetti/confetti.dart';
+import 'package:expandable_text/expandable_text.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+
+import '../db.dart';
+import '../details.dart';
+import '../global.dart';
+
+class Fajr extends StatefulWidget {
+  Fajr({Key? key, required this.amal_date, required this.id}) : super(key: key);
+
+  String amal_date;
+  String id;
+
+  @override
+  State<Fajr> createState() => _FajrState();
+}
+
+class _FajrState extends State<Fajr> {
+  final dbHelper = DatabaseHelper.instance;
+  bool isConfetti = false;
+  ConfettiController? _confettiController;
+
+  @override
+  void initState() {
+    super.initState();
+    _confettiController =
+        ConfettiController(duration: const Duration(seconds: 2));
+    dbHelper.initializeData('Fajr', widget.amal_date.toString()).then((value) {
+      setState(() {
+        dbHelper.modifiedFajrItems = value;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _confettiController?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+            "${DateFormat('dd MMM yyyy').format(DateTime.parse(widget.amal_date))}"),
+        centerTitle: true,
+        backgroundColor: AppGlobal.PrimaryColor,
+        leading: IconButton(
+          onPressed: () {
+            Get.to(Details(amal_date: widget.amal_date.toString(), id: '1'));
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
+      ),
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    Card(
+                      elevation: 5,
+                      child: Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 10),
+                              margin: EdgeInsets.only(bottom: 5),
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(6),
+                                  topRight: Radius.circular(6),
+                                ),
+                                color: AppGlobal.PrimaryColor,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "ফজর ট্রাকিং:",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            for (var i = 0;
+                                i < dbHelper.modifiedFajrItems.length;
+                                i++) ...[
+                              SwitchListTile(
+                                secondary: dbHelper.modifiedFajrItems[i]
+                                            ['isChecked'] ==
+                                        false
+                                    ? Icon(
+                                        Icons.close,
+                                        color: Colors.red,
+                                      )
+                                    : Icon(
+                                        Icons.check,
+                                        color: AppGlobal.PrimaryColor,
+                                      ),
+                                activeColor: dbHelper.modifiedFajrItems[i]
+                                            ['isChecked'] ==
+                                        false
+                                    ? Colors.red
+                                    : AppGlobal.PrimaryColor,
+                                controlAffinity:
+                                    ListTileControlAffinity.leading,
+                                title: RichText(
+                                  text: TextSpan(
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: dbHelper.modifiedFajrItems[i]
+                                            ['title'],
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                      TextSpan(
+                                        text: " [" +
+                                            dbHelper.modifiedFajrItems[i]
+                                                    ['points']
+                                                .toString() +
+                                            "]",
+                                        style: TextStyle(
+                                          color: AppGlobal.PrimaryColor,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                isThreeLine: true,
+                                subtitle: ExpandableText(
+                                  dbHelper.modifiedFajrItems[i]['subTitle'],
+                                  expandText: 'show more',
+                                  collapseText: 'show less',
+                                  maxLines: 2,
+                                  linkColor: Colors.blue,
+                                  style: TextStyle(
+                                      fontStyle: FontStyle.italic,
+                                      fontSize: 12),
+                                ),
+                                value: dbHelper.modifiedFajrItems[i]
+                                    ['isChecked'],
+                                onChanged: (bool? newValue) {
+                                  setState(() {
+                                    dbHelper.modifiedFajrItems[i]['isChecked'] =
+                                        newValue ?? false;
+                                  });
+
+                                  if (newValue == true) {
+                                    setState(() {
+                                      isConfetti = true;
+                                    });
+                                    _confettiController?.play();
+                                  } else {
+                                    setState(() {
+                                      isConfetti = false;
+                                    });
+                                    _confettiController?.stop();
+                                  }
+
+                                  dbHelper
+                                      .updateDatabaseValue(
+                                    'Fajr',
+                                    dbHelper.modifiedFajrItems[i]['id']
+                                        .toString(),
+                                    widget.amal_date.toString(),
+                                    newValue as bool,
+                                  )
+                                      .then((value) {
+                                    setState(() {
+                                      dbHelper.modifiedFajrItems = value;
+                                    });
+                                  });
+                                },
+                              ),
+                            ],
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          if (isConfetti)
+            Positioned.fill(
+              child: Align(
+                alignment: Alignment.center,
+                child: ConfettiWidget(
+                  confettiController: _confettiController!,
+                  blastDirectionality: BlastDirectionality.explosive,
+                  shouldLoop: false,
+                  maxBlastForce: 12,
+                  minBlastForce: 10,
+                  emissionFrequency: 0.32,
+                  numberOfParticles: 10,
+                  gravity: .35,
+                  colors: [
+                    Colors.green,
+                    Colors.blue,
+                    Colors.orange,
+                    Colors.purple,
+                    Colors.red,
+                    Colors.yellow,
+                    Colors.pink,
+                    Colors.cyan,
+                    Colors.teal,
+                    Colors.lime,
+                    Colors.amber,
+                    Colors.indigo,
+                    Colors.brown,
+                    Colors.grey,
+                    Colors.black,
+                  ],
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
