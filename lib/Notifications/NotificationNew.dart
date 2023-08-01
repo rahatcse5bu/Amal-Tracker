@@ -36,141 +36,141 @@ Future<void> scheduleWeeklyDailyNotifications() async {
   final Map<int, List<Map<String, String>>> notificationsData = {
     DateTime.saturday: [
       {
-        'time': '15:05',
-        'title': 'Saturday Notification 1 Title',
-        'body': 'St Notification 1 Body',
+        'time': '20:15',
+        'title': 'Saturday [20:15]',
+        'body': 'St Notification Body Here',
       },
       {
         'time': '15:08',
-        'title': 'Saturday Notification 2 Title',
-        'body': 'St Notification 2 Body',
+        'title': 'Saturday [3:08]',
+        'body': 'St Notification Body',
       },
       {
         'time': '15:00',
-        'title': 'Saturday Notification 3 Title',
-        'body': 'Rahat Notification 3 Body',
+        'title': 'Saturday [3:00]',
+        'body': 'Notification Body',
       },
       {
         'time': '14:58',
-        'title': 'Saturday Notification 4 Title',
-        'body': 'Great Notification 4 Body',
+        'title': 'Saturday [2:58]',
+        'body': 'Great Notification Body',
       },
       {
         'time': '15:15',
-        'title': 'Saturday Notification 5 Title',
-        'body': 'Saturday Notification 5 Body',
+        'title': 'Saturday [3:15]',
+        'body': 'Saturday Testing Body',
       },
       {
         'time': '15:25',
-        'title': 'Saturday Notification 5 Title',
-        'body': 'Saturday Notification 5 Body',
+        'title': 'Saturday [3:25] ',
+        'body': 'Saturday  Body',
       },
       {
         'time': '15:20',
-        'title': 'Saturday Notification 5 Title',
-        'body': 'Saturday Notification 5 Body',
+        'title': 'Saturday [3:20]',
+        'body': 'Saturday Notification  Body',
       },
       {
         'time': '15:30',
-        'title': 'Saturday Notification 5 Title',
-        'body': 'Saturday Notification 5 Body',
+        'title': 'Saturday [3:30]',
+        'body': 'Saturday Notification Body',
       },
       {
         'time': '15:35',
-        'title': 'Saturday Notification 5 Title',
-        'body': 'Saturday Notification 5 Body',
+        'title': 'Saturday  [3:35]',
+        'body': 'Saturday Notification Body',
       },
       {
         'time': '14:55',
-        'title': 'Saturday Notification 6 Title',
-        'body': 'Chill Notification 6 Body',
+        'title': 'Saturday  [2:55]',
+        'body': 'Chill Notification Body',
       },
       {
         'time': '15:40',
-        'title': 'Saturday Notification 7 Title',
-        'body': 'Saturday Notification 5 Body',
+        'title': 'Saturday  [3:40]',
+        'body': 'Saturday Notification  Body',
       },
       {
         'time': '15:55',
-        'title': 'Saturday Notification 6 Title',
-        'body': 'Chill Notification 6 Body',
+        'title': 'Saturday [3:55]',
+        'body': 'Chill Notification Body',
       },
       {
         'time': '16:40',
-        'title': 'Saturday Notification 7 Title',
-        'body': 'Saturday Notification 5 Body',
+        'title': 'Saturday  [4:40]',
+        'body': 'Saturday Notification Body',
       },
       {
         'time': '16:55',
-        'title': 'Saturday Notification 6 Title',
-        'body': 'Chill Notification 6 Body',
+        'title': 'Saturday [4:55]',
+        'body': 'Chill Notification Body',
       },
       {
         'time': '17:00',
-        'title': 'Saturday Notification 7 Title',
-        'body': 'Saturday Notification 5 Body',
+        'title': 'Saturday [5:00]',
+        'body': 'Saturday Notification  Body',
       },
       {
         'time': '17:55',
-        'title': 'Saturday Notification 6 Title',
-        'body': 'Chill Notification 6 Body',
+        'title': 'Saturday  [5:55]',
+        'body': 'Chill Notification Body',
       },
       {
         'time': '18:55',
-        'title': 'Saturday Notification 6 Title',
+        'title': 'Saturday  [6:55]',
         'body': 'Chill Notification 6 Body',
       },
       {
         'time': '19:00',
-        'title': 'Saturday Notification 7 Title',
-        'body': 'Saturday Notification 5 Body',
+        'title': 'Saturday  [7:00]',
+        'body': 'Agamikalke Robibar , Porsu Roja Raikhen',
       },
       {
         'time': '19:55',
-        'title': 'Saturday Notification 6 Title',
-        'body': 'Chill Notification 6 Body',
+        'title': 'Saturday [7:55]',
+        'body': 'Chill Notification  Body',
       },
       {
         'time': '20:05',
-        'title': 'Saturday Notification 6 Title',
-        'body': 'Chill Notification 6 Body',
+        'title': 'Saturday [8:05]',
+        'body': 'Chill Notification Body',
       },
       {
         'time': '22:05',
-        'title': 'Saturday Notification 6 Title',
-        'body': 'Chill Notification 6 Body',
+        'title': 'Saturday [10:05]',
+        'body': 'Have a Relax Notification Body',
       },
     ],
     DateTime.wednesday: [
       {
-        'time': '03:00',
-        'title': 'Wednesday Notification 1 Title',
-        'body': 'Wednesday Notification 1 Body',
+        'time': '20:28',
+        'title': 'Wednesday  [8:28]',
+        'body': 'Wednesday Notification  Body',
       },
       {
         'time': '06:00',
-        'title': 'Wednesday Notification 2 Title',
-        'body': 'Wednesday Notification 2 Body',
+        'title': 'Wednesday [6:00] ',
+        'body': 'Wednesday Notification Body',
       },
       {
         'time': '09:00',
-        'title': 'Wednesday Notification 3 Title',
-        'body': 'Wednesday Notification 3 Body',
+        'title': 'Wednesday [9:00]',
+        'body': 'Wednesday Notification Body',
       },
       {
         'time': '12:00',
-        'title': 'Wednesday Notification 4 Title',
-        'body': 'Wednesday Notification 4 Body',
+        'title': 'Wednesday [12:00]',
+        'body': 'Wednesday Notification  Body',
       },
       {
         'time': '20:00',
-        'title': 'Wednesday Notification 5 Title',
-        'body': 'Wednesday Notification 5 Body',
+        'title': 'Wednesday [8:00]',
+        'body': 'Wednesday Notification  Body',
       },
       {
         'time': '23:23',
-        'title': 'Wednesday Notification 6 Title',
-        'body': 'Wednesday Notification 6 Body',
+        'title': 'Wednesday [11:23]',
+        'body': 'Wednesday Notification Body',
       },
     ],
   };
@@ -179,7 +179,7 @@ Future<void> scheduleWeeklyDailyNotifications() async {
     final notifications = notificationsData[day];
 
     final DateTime nextDay = getNextWeekday(now, day);
-
+    print('nextDay: $nextDay');
     for (final notification in notifications!) {
       final time = notification['time']!;
       final title = notification['title']!;
@@ -208,6 +208,7 @@ Future<void> scheduleWeeklyDailyNotifications() async {
         androidAllowWhileIdle: true,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         matchDateTimeComponents: DateTimeComponents.time,
       );
     }
@@ -252,62 +253,61 @@ Future<void> scheduleDailyNotifications() async {
 
   final DateTime now = DateTime.now();
   final Map<TimeOfDay, NotificationData> notificationsData = {
-    TimeOfDay(hour: 00, minute: 40): NotificationData(
-      title: 'Notification 1 Title',
-      body:
-          "E beda 12:40 Bajjee.University of Barishal is a public university located in Barishal, a divisional city in southern Bangladesh. It is the country's 33rd public university. The university was established in 2011 and began academic activities at undergraduate level in six departments under four faculties on 24 January 201",
+    TimeOfDay(hour: 20, minute: 40): NotificationData(
+      title: 'Night Prayer',
+      body: "It's 8:40 PM, Time to go for prayer",
     ),
-    TimeOfDay(hour: 00, minute: 45): NotificationData(
-      title: 'Notification 2 Title',
-      body: '12 ta 45 bajjje',
+    TimeOfDay(hour: 20, minute: 45): NotificationData(
+      title: 'Night Prayer',
+      body: "8 ta 45 bajjje, Jama'at Shuru",
     ),
-    TimeOfDay(hour: 00, minute: 50): NotificationData(
-      title: 'Notification 1 Title',
-      body: 'E beda 12:50 Bajjee',
+    TimeOfDay(hour: 20, minute: 15): NotificationData(
+      title: 'Night',
+      body: '8:15 Bajjee',
     ),
-    TimeOfDay(hour: 19, minute: 52): NotificationData(
-      title: 'Notification 2 Title',
-      body: '3 ta 16 bajjje',
+    TimeOfDay(hour: 20, minute: 20): NotificationData(
+      title: 'Night',
+      body: '8 ta 20 bajjje',
     ),
-    TimeOfDay(hour: 15, minute: 33): NotificationData(
-      title: 'Notification 1 Title',
-      body: 'E beda 3:33 Bajjee',
+    TimeOfDay(hour: 20, minute: 23): NotificationData(
+      title: 'Night',
+      body: 'Vai 8:23 Bajjee',
     ),
-    TimeOfDay(hour: 15, minute: 59): NotificationData(
-      title: 'Notification 2 Title',
-      body: '3 ta 59 bajjje',
+    TimeOfDay(hour: 20, minute: 25): NotificationData(
+      title: 'Night',
+      body: '8 ta 25 bajjje',
     ),
-    TimeOfDay(hour: 16, minute: 58): NotificationData(
-      title: 'Asr Namaj',
-      body: 'Asr Namaj er jonno ready hon. Jamaat 5:15 te',
+    TimeOfDay(hour: 20, minute: 30): NotificationData(
+      title: 'Isha Namaj',
+      body: 'Isha Namaj er jonno ready hon. Jamaat 8:45 e',
     ),
-    TimeOfDay(hour: 17, minute: 35): NotificationData(
-      title: 'Notification 4 Title',
-      body: 'ahon 5:35 bajjeee monuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu',
+    TimeOfDay(hour: 21, minute: 35): NotificationData(
+      title: 'Isha Prayer',
+      body: 'akhon 9:35 bajjeee . Quickly Ready hon',
     ),
-    TimeOfDay(hour: 18, minute: 43): NotificationData(
-      title: 'Maghrib Namaj',
-      body: 'Maghrib er jamat e jan quickly. Jamat shuru hoiya jabee',
+    TimeOfDay(hour: 21, minute: 43): NotificationData(
+      title: 'Night ',
+      body: "Hello there, it's 9:43 PM",
     ),
-    TimeOfDay(hour: 19, minute: 44): NotificationData(
-      title: 'Notification 6 Title',
-      body: '7:44 bajje sir',
+    TimeOfDay(hour: 22, minute: 44): NotificationData(
+      title: 'Night',
+      body: '10:44 bajje sir',
     ),
     TimeOfDay(hour: 20, minute: 33): NotificationData(
       title: 'Isha Namaj',
-      body: 'Isha er jamaat e jao monu. 8:45 e jaaamt shuru hobe',
+      body: 'Isha er jamaat e jaan. 8:45 e jaaamt shuru hobe',
     ),
-    TimeOfDay(hour: 22, minute: 33): NotificationData(
+    TimeOfDay(hour: 22, minute: 43): NotificationData(
       title: 'Night',
-      body: 'ekhon 10:33 bajje',
+      body: 'ekhon 10:43 bajje',
     ),
     TimeOfDay(hour: 22, minute: 53): NotificationData(
       title: 'Raat',
-      body: '10:53 bajjeee sir',
+      body: '10:53 bajjeee akhon',
     ),
     TimeOfDay(hour: 4, minute: 35): NotificationData(
       title: 'Fajr Namaj',
-      body: 'Fajr er jammat e jao, Jamaat 4:45 e shuru hobe',
+      body: 'Fajr er jammat e jaan, Jamaat 4:45 e shuru hobe',
     ),
     TimeOfDay(hour: 5, minute: 20): NotificationData(
       title: 'Fajr ',
@@ -319,19 +319,23 @@ Future<void> scheduleDailyNotifications() async {
     ),
     TimeOfDay(hour: 9, minute: 20): NotificationData(
       title: 'Sokal ',
-      body: '9:20 bajjje sir',
+      body: 'Sokal 9:20 bajjje sir',
     ),
     TimeOfDay(hour: 10, minute: 30): NotificationData(
       title: 'Sokal ',
-      body: '10:30 bajje monuuuuuuuuuuuuuuu',
+      body: '10:30 bajje vai',
     ),
     TimeOfDay(hour: 11, minute: 20): NotificationData(
-      title: 'Dhur ',
+      title: 'Dhuhr ',
       body: '11:20 bajjje sir',
     ),
     TimeOfDay(hour: 11, minute: 57): NotificationData(
       title: 'Dupur ',
       body: '11:57 bajje',
+    ),
+    TimeOfDay(hour: 12, minute: 57): NotificationData(
+      title: 'Dupur ',
+      body: '12:57 bajje',
     ),
   };
 

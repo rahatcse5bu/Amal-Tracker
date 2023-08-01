@@ -183,6 +183,7 @@ class _IntroState extends State<Intro> {
 
   void onDonePress() {
     localStorage.setItem('isIntroVisited', true);
+    localStorage.setItem('notification', true);
     print("onDonePress caught");
     //navigate to Dashboard() page after done
     // Navigator.pushReplacement(

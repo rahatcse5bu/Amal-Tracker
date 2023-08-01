@@ -31,12 +31,24 @@ class _DashboardState extends State<Dashboard> {
   final int _currentIndex = 0;
   // final List<Widget> pages = [Dashboard(isHistory: widget.isHistory), History(), Settings()];
   Widget body = AppMain();
+  @override
+  void initState() {
+    super.initState();
+    if (widget.isHistory) {
+      current_index = 1;
+      body = History();
+    } else {
+      current_index = 0;
+      body = AppMain();
+    }
+  }
+
   void OnTapped(int index) {
     setState(() {
       current_index = index;
       switch (current_index) {
         case 0:
-          if (widget.isHistory) {
+          if (widget.isHistory == true) {
             body = History();
           } else {
             body = AppMain();

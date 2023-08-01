@@ -9,6 +9,7 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'Objects/Fajr.dart';
+import 'dashboard.dart';
 import 'db.dart';
 import 'details.dart';
 
@@ -556,7 +557,7 @@ class _HistoryState extends State<History> {
                 child: Center(
                     child: Text("History",
                         style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 20,
                             color: Colors.white,
                             fontWeight: FontWeight.bold)))),
             data.length > 0
@@ -774,8 +775,15 @@ class _HistoryState extends State<History> {
                                             item[dbHelper.fazayel.columnDate]);
                                         // fetchData('Fajr');
                                         setState(() {});
-                                        Navigator.popAndPushNamed(
-                                            context, '/history');
+                                        // Navigator.popAndPushNamed(
+                                        //     context, '/history');
+                                        //material page route to Dashboard()
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Dashboard(isHistory: true)),
+                                        );
                                       },
                                       icon:
                                           Icon(Icons.delete, color: Colors.red),

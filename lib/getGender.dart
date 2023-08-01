@@ -15,7 +15,7 @@ class GetGender extends StatefulWidget {
 }
 
 class _GetGenderState extends State<GetGender> {
-  String GenderValue = 'flutter';
+  String GenderValue = 'male';
   List<S2Choice<String>> GenderOptions = [
     S2Choice<String>(value: 'male', title: 'পুরুষ'),
     S2Choice<String>(value: 'female', title: 'মহিলা'),
@@ -87,6 +87,7 @@ class _GetGenderState extends State<GetGender> {
                             ),
                             onChanged: (text) {
                               localStorage.setItem("name", text);
+                              localStorage.setItem('notification', true);
                             },
                           ),
                         ),

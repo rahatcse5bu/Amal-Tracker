@@ -177,11 +177,18 @@ class _OverviewState extends State<Overview> {
     }
   }
 
+  var twoMonthsAgo = DateFormat('dd MMM yyyy')
+      .format(DateTime.now().subtract(Duration(days: 60)));
+
+  var today = DateFormat('dd MMM yyyy').format(DateTime.now());
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     fetchLast2MonthData();
+    final dateTime = DateTime.now().subtract(Duration(days: 60));
+    twoMonthsAgo = DateFormat('dd MMM yyyy').format(dateTime);
+    today = DateFormat('dd MMM yyyy').format(DateTime.now());
     // fetchData();
   }
 
@@ -203,94 +210,22 @@ class _OverviewState extends State<Overview> {
     setState(() {});
   }
 
-  List<PrayerData> fajrData = [
-    PrayerData(DateTime(2023, 1, 1), 150),
-    PrayerData(DateTime(2023, 1, 2), 80),
-    PrayerData(DateTime(2023, 1, 3), 340),
-    PrayerData(DateTime(2023, 1, 4), 250),
-    PrayerData(DateTime(2023, 1, 5), 170),
-    PrayerData(DateTime(2023, 1, 7), 140),
-    PrayerData(DateTime(2023, 1, 9), 520),
-    PrayerData(DateTime(2023, 1, 12), 710),
-    PrayerData(DateTime(2023, 1, 13), 400),
-    PrayerData(DateTime(2023, 1, 19), 500),
-    PrayerData(DateTime(2023, 1, 22), 179),
-    // PrayerData(DateTime(2023, 1, 23), 340),
-    // PrayerData(DateTime(2023, 1, 25), 513),
-    // PrayerData(DateTime(2023, 1, 26), 370),
-    // PrayerData(DateTime(2023, 1, 27), 240),
-    // PrayerData(DateTime(2023, 1, 28), 510),
-    // PrayerData(DateTime(2023, 1, 29), 370),
-    // PrayerData(DateTime(2023, 1, 30), 240),
-    // PrayerData(DateTime(2023, 2, 27), 240),
-    // PrayerData(DateTime(2023, 2, 28), 510),
-    // PrayerData(DateTime(2023, 2, 29), 370),
-    // PrayerData(DateTime(2023, 3, 30), 240),
-    // Add more data points as needed
-  ];
+  List<PrayerData> fajrData = [];
 
-  List<PrayerData> dhuhrData = [
-    PrayerData(DateTime(2023, 1, 1), 810),
-    PrayerData(DateTime(2023, 2, 22), 260),
-    PrayerData(DateTime(2023, 2, 23), 190),
-    PrayerData(DateTime(2023, 2, 24), 380),
-    PrayerData(DateTime(2023, 1, 26), 160),
-    PrayerData(DateTime(2023, 2, 25), 190),
-    PrayerData(DateTime(2023, 2, 27), 810),
-    PrayerData(DateTime(2023, 2, 28), 620),
-    PrayerData(
-        DateTime(
-          2023,
-          2,
-        ),
-        290),
-    // PrayerData(DateTime(2023, 3, 4), 780),
-    // PrayerData(DateTime(2023, 3, 2), 20),
-    // PrayerData(DateTime(2023, 3, 3), 920),
-    // PrayerData(DateTime(2023, 3, 1), 820),
-    // PrayerData(DateTime(2023, 3, 2), 760),
-    // PrayerData(DateTime(2023, 3, 3), 490),
-    // PrayerData(DateTime(2023, 3, 9), 80),
-    // PrayerData(DateTime(2023, 3, 12), 60),
-    // PrayerData(DateTime(2023, 3, 13), 90),
-    // PrayerData(DateTime(2023, 3, 21), 80),
-    // PrayerData(DateTime(2023, 3, 22), 60),
-    // PrayerData(DateTime(2023, 3, 23), 90),
-    // Add more data points as needed
-  ];
+  List<PrayerData> dhuhrData = [];
 
-  List<PrayerData> generalData = [
-    PrayerData(DateTime(2023, 1, 1), 30),
-    PrayerData(DateTime(2023, 1, 2), 50),
-    PrayerData(DateTime(2023, 1, 3), 20),
-    // Add more data points as needed
-  ];
+  List<PrayerData> generalData = [];
 
-  List<PrayerData> asrData = [
-    PrayerData(DateTime(2023, 1, 1), 60),
-    PrayerData(DateTime(2023, 1, 2), 40),
-    PrayerData(DateTime(2023, 1, 3), 70),
-    // Add more data points as needed
-  ];
+  List<PrayerData> asrData = [];
 
-  List<PrayerData> maghribData = [
-    PrayerData(DateTime(2023, 1, 1), 90),
-    PrayerData(DateTime(2023, 1, 2), 50),
-    PrayerData(DateTime(2023, 1, 3), 80),
-    // Add more data points as needed
-  ];
+  List<PrayerData> maghribData = [];
 
-  List<PrayerData> ishaData = [
-    PrayerData(DateTime(2023, 1, 1), 40),
-    PrayerData(DateTime(2023, 1, 2), 60),
-    PrayerData(DateTime(2023, 1, 3), 30),
-    // Add more data points as needed
-  ];
+  List<PrayerData> ishaData = [];
   List<PrayerData> fazayelData = [
-    PrayerData(DateTime(2023, 1, 1), 40),
-    PrayerData(DateTime(2023, 1, 2), 60),
-    PrayerData(DateTime(2023, 1, 3), 30),
-    // Add more data points as needed
+    // PrayerData(DateTime(2023, 1, 1), 40),
+    // PrayerData(DateTime(2023, 1, 2), 60),
+    // PrayerData(DateTime(2023, 1, 3), 30),
+    // // Add more data points as needed
   ];
   List<Map<String, dynamic>> data = [];
   late DateTime startDate;
@@ -302,7 +237,7 @@ class _OverviewState extends State<Overview> {
         await dbHelper.getDataInRange(table, startDate!, endDate!);
     setState(() {
       data = fetchedData;
-      print('Data====>' + data.toString());
+      // print('Data====>' + data.toString());
     });
     return fetchedData;
   }
@@ -356,7 +291,7 @@ class _OverviewState extends State<Overview> {
                       startDate = selectedDate;
                       _startDateController.text =
                           DateFormat('yyyy-MM-dd').format(selectedDate);
-                      print('Start Date=> ' + endDate.toString());
+                      // print('Start Date=> ' + endDate.toString());
                     });
                   }
                 },
@@ -392,7 +327,7 @@ class _OverviewState extends State<Overview> {
                       endDate = selectedDate;
                       _endDateController.text =
                           DateFormat('yyyy-MM-dd').format(selectedDate);
-                      print('End Date=> ' + endDate.toString());
+                      // print('End Date=> ' + endDate.toString());
                     });
                   }
                 },
@@ -423,6 +358,14 @@ class _OverviewState extends State<Overview> {
                       borderRadius: BorderRadius.circular(6),
                     )),
                 onPressed: () async {
+                  setState(() {
+                    final formattedStartDate =
+                        DateFormat('dd MMM yyyy').format(startDate);
+                    final formattedEndDate =
+                        DateFormat('dd MMM yyyy').format(endDate);
+                    twoMonthsAgo = formattedStartDate.toString();
+                    today = formattedEndDate.toString();
+                  });
                   // Perform filtering based on the selected dates
                   // ...
                   // Close the bottom sheet
@@ -432,7 +375,7 @@ class _OverviewState extends State<Overview> {
                         .then(
                           (value) => setState(() {
                             fajrData = value;
-                            print('my data => ' + value.toString());
+                            // print('my data => ' + value.toString());
                           }),
                         );
                     await dbHelper
@@ -440,7 +383,7 @@ class _OverviewState extends State<Overview> {
                         .then(
                           (_dhuhr) => setState(() => {
                                 dhuhrData = _dhuhr,
-                                print('dhhr data => ' + _dhuhr.toString()),
+                                // print('dhhr data => ' + _dhuhr.toString()),
                               }),
                         );
                     await dbHelper
@@ -637,7 +580,14 @@ class _OverviewState extends State<Overview> {
               ),
             ),
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 15),
+
+          Container(
+              child: Center(
+            child: Text("Showing From ${twoMonthsAgo} to ${today}",
+                style: TextStyle(fontSize: 12, color: Colors.grey[600])),
+          )),
+          SizedBox(height: 15),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Container(

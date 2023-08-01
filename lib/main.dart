@@ -8,12 +8,14 @@ import 'package:expandable_text/expandable_text.dart';
 import 'package:get/get.dart';
 
 import 'package:intl/intl.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import 'Data/prayerData.dart';
 import 'Intro.dart';
 import 'Notifications/NotificationNew.dart';
 import 'Notifications/Notifications.dart';
 import 'Overview.dart';
+import 'back_services.dart';
 import 'confetti.dart';
 import 'dashboard.dart';
 import 'getGender.dart';
@@ -29,9 +31,9 @@ import 'widgets/DuaScreen.dart';
 import 'package:cron/cron.dart';
 // import 'package:awesome_notifications/awesome_notifications.dart';
 // import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
-import 'package:workmanager/workmanager.dart';
+// import 'package:workmanager/workmanager.dart';
 
-import 'package:alarm/alarm.dart';
+// import 'package:alarm/alarm.dart';
 
 // void initializeNotifications() {
 //   AwesomeNotifications().initialize(
@@ -97,25 +99,18 @@ import 'package:alarm/alarm.dart';
 //   notificationsServices.sendNotification("Hello Arafat [5 Min]",
 //       "Tomar Deeni Boon der Valo hoiya Jete Bolo.\n... Tara etoh farmer keno?");
 // }
-void callbackDispatcher() {
-  Workmanager().executeTask((task, inputData) async {
-    print("Native called background task: $task");
-    await scheduleDailyNotifications();
-    return Future.value(true);
-  });
-}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Permission.notification.isDenied.then((value) {
+    if (value) {
+      Permission.notification.request();
+    }
+  });
+  await initilizeService();
   // initializeNotifications();
   // checkNotificationPermission();
-  // Workmanager().initialize(callbackDispatcher);
-  // Workmanager().registerPeriodicTask(
-  //   "taskName",
-  //   "taskIdentifier",
-  //   frequency: Duration(minutes: 15),
-  //   initialDelay: Duration(seconds: 45),
-  // );
+
   await initializeNotifications();
   await scheduleDailyNotifications();
   await scheduleWeeklyDailyNotifications();
@@ -164,7 +159,7 @@ void main() async {
   List<String> ishaTime = getPrayerTiming(monthText, day.toString(), 'Isha');
   int ishaHour = int.parse(ishaTime[0]);
   int ishaMinute = int.parse(ishaTime[1]);
-  // final cron = Cron();
+  final cron = Cron();
   // checkNotificationPermission();
 
   // fajrMinute = 05;
@@ -283,10 +278,9 @@ void main() async {
 //   cron.schedule(Schedule.parse('52 17 * * 5'), () {
 //     showNotification('Friday Dua', "Jumma er din Asr er por dua kobul hoy");
 //   });
-//   cron.schedule(Schedule.parse('*/5 * * * *'), () {
-//     showNotification(
-//         'Friday Dorood [1]', "Jumma er din Beshi Beshi Dorood Porun");
-//   });
+  // cron.schedule(Schedule.parse('*/5 * * * *'), () {
+
+  // });
 //Friday Reminder Ends
 
   // cron.schedule(Schedule.parse('*/1 * * * *'), () {
@@ -295,6 +289,8 @@ void main() async {
   //   calculateIshaJamaat('7:32', 30);
   //   calculateIshaJamaat('7:20', 30);
   //   calculateIshaJamaat('8:19', 30);
+  //   calculateIshaJamaat('7:30', 30);
+  //   print("hello");
   // });
 
   // cron.schedule(Schedule.parse('${y} ${x} * * *'),

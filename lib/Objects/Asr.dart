@@ -1,4 +1,3 @@
-
 // List<Map<String, dynamic>> Asr_Items = [
 //   {
 //     'id': 1,
@@ -46,21 +45,19 @@
 //   },
 // ];
 
-class AsrObj{
-  String AsrTableName= 'Asr';
+class AsrObj {
+  String AsrTableName = 'Asr';
   String columnId = 'id';
   String columnDate = 'Date';
-  String column_azan_Reply= 'azan_Reply';
-  String column_tahiyatul_Mosjid = 'tahiyatul_Mosjid';  
-  String column_four_Rakaat_Fard= 'four_Rakaat_Fard';
+  String column_azan_Reply = 'azan_Reply';
+  String column_tahiyatul_Mosjid = 'tahiyatul_Mosjid';
+  String column_four_Rakaat_Fard = 'four_Rakaat_Fard';
   String column_ayatul_Kursi = 'ayatul_Kursi';
   String column_33_Tasbih = 'Thirty_Three_Tasbih';
   String column_10_Tasbih = 'Ten_Tasbih';
-  
 }
 
 AsrObj asr = AsrObj();
-
 
 List<Map<String, dynamic>> Asr_Items = [
   {
@@ -85,7 +82,7 @@ List<Map<String, dynamic>> Asr_Items = [
     'subTitle':
         "প্রতি ৫ ওয়াক্তে ১৭ রাকা'আত ফরজ নামাজের অংশ। বাধ্যতামূলক পড়তেই হবে,না পড়লে গুনাহ হবে।",
     'isChecked': false,
-    'points': 190,
+    'points': 150,
   },
   {
     'id': asr.column_ayatul_Kursi,
@@ -102,7 +99,7 @@ List<Map<String, dynamic>> Asr_Items = [
     'subTitle':
         "আবূ হুরায়রা (রা) থেকে বর্ণিত:গরীব সাহাবীগণ বললেনঃ হে আল্লাহ্‌র রসূল (স)! ধনী লোকেরা তো উচ্চমর্যাদা ও চিরস্থায়ী নি'য়ামত নিয়ে আমাদের থেকে এগিয়ে গেলেন। তিনি জিজ্ঞেস করলেনঃ তা কেমন করে? তাঁরা বললেনঃ আমরা যে রকম সলাত আদায় করি, তাঁরাও সে রকম সলাত আদায় করেন। আমরা যেমন জিহাদ করি, তাঁরাও তেমন জিহাদ করেন এবং তাঁরাও তাদের অতিরিক্ত মাল দিয়ে সদাকাহ-খয়রাত করেন; কিন্তু আমাদের কাছে সম্পদ নেই। তিনি বললেনঃ আমি কি তোমাদের একটি 'আমাল বাতলে দেব না, যে 'আমাল দ্বারা তোমরা তোমাদের পূর্ববর্তীদের মর্যাদা লাভ করতে পারবে, আর তোমাদের পরবর্তীদের চেয়ে এগিয়ে যেতে পারবে, আর তোমাদের মত 'আমাল কেউ করতে পারবে না, কেবলমাত্র যারা তোমাদের মত 'আমাল করবে তারা ব্যতীত। সে 'আমাল হলো তোমরা প্রত্যেক সালাতের পর ১০ বার 'সুবহানাল্লাহ', ১০ বার 'আলহামদু লিল্লাহ' এবং ১০ বার 'আল্লাহু আকবার' পাঠ করবে।[সহিহ বুখারী- ৬৩২৯]",
     'isChecked': false,
-    'points': 80,
+    'points': 50,
   },
   {
     'id': asr.column_10_Tasbih,
@@ -111,6 +108,6 @@ List<Map<String, dynamic>> Asr_Items = [
     'subTitle':
         "যে ব্যক্তি প্রত্যেক ফরয সালাতের পর সুবহানাল্লাহ ৩৩ বার, আলহামদুলিল্লাহ ৩৩ বার, আল্লাহু আকবার ৩৩ বার পাঠ করার পর এই দোয়া (لَا إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لَا شَرِيْكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَىْءٍ قَدِيْرٌ) ১বার পাঠ করে মোট ১০০ বার পূর্ণ করবে তার সমস্ত গুনাহ(ছগীরা) মাফ হয়ে যাবে; যদিও তা সুমুদ্রের ফেনা পরিমাণ হয়।[সহিহ মুসলিম: ১৩৮০]",
     'isChecked': false,
-    'points': 60,
+    'points': 50,
   },
 ];

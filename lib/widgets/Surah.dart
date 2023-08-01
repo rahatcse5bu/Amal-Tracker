@@ -32,9 +32,9 @@ class _SurahState extends State<Surah> {
                         verseEndSymbol: true),
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 35,
                       fontFamily: 'Noor E Huda',
-                      fontWeight: FontWeight.bold,
+                      // fontWeight: FontWeight.bold,
                     ),
                   ),
                 );

@@ -61,12 +61,21 @@ dependencies:
   elegant_notification: any
   flutter_local_notifications: any
   alarm: any
+  flutter_background_service: any
+  flutter_background_service_android: any
+  flutter_background_service_ios: any
+  permission_handler: any
 
 dev_dependencies:
   floor_generator: any
+  flutter_launcher_icons: any
   build_runner: any
   flutter_test:
     sdk: flutter
+flutter_icons:
+  image_path: "images/icon.png"
+  android: true
+  ios: true
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

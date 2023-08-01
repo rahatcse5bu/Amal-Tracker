@@ -75,38 +75,43 @@ class _QuranState extends State<Quran> {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.75),
-                        spreadRadius: 1.0,
-                        blurRadius: 1,
-                        offset: Offset(0, 3), // changes position of shadow
+                        color: Colors.grey.withOpacity(0.25),
+                        spreadRadius: 0.0,
+                        blurRadius: 0.1,
+                        offset: Offset(0, 2), // changes position of shadow
                       ),
                     ],
                   ),
                   child: Card(
                     elevation: 3.2,
-                    child: ListTile(
-                      onTap: () {
-                        Get.to(Surah(surah_no: surahNumber));
-                      },
-                      leading: CircleAvatar(
-                        backgroundColor: AppGlobal.PrimaryColor,
-                        child: Text(
-                          modifiedSurahTitle.substring(0, 1),
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.w400),
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                      child: ListTile(
+                        onTap: () {
+                          Get.to(Surah(surah_no: surahNumber));
+                        },
+                        leading: CircleAvatar(
+                          backgroundColor: AppGlobal.PrimaryColor,
+                          child: Text(
+                            modifiedSurahTitle.substring(0, 1),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400),
+                          ),
                         ),
+                        title: Text(surahTitle),
+                        subtitle: Text(
+                            quran.getSurahNameArabic(surahNumber) +
+                                "(" +
+                                quran.getPlaceOfRevelation(surahNumber) +
+                                ")",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Noor E Huda',
+                            )),
+                        trailing: Icon(Icons.arrow_forward_ios),
                       ),
-                      title: Text(surahTitle),
-                      subtitle: Text(
-                          quran.getSurahNameArabic(surahNumber) +
-                              "(" +
-                              quran.getPlaceOfRevelation(surahNumber) +
-                              ")",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Noor E Huda',
-                          )),
-                      trailing: Icon(Icons.arrow_forward_ios),
                     ),
                   ),
                 );
